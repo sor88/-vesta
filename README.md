@@ -1,1 +1,1 @@
-# -vesta
+# шаблоны панели vesta для nginx
