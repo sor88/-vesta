@@ -1,0 +1,12 @@
+server {
+    listen       %proxy_ssl_port%;
+    server_name  %domain_idn% %alias_idn%;
+    #access_log  /var/log/nginx/%ip%.log main;
+    ssl         on;
+    ssl_certificate      %ssl_pem%;
+    ssl_certificate_key  %ssl_key%;
+    error_log  /var/log/%web_system%/domains/%domain%.error.log error;
+        rewrite ^ http://www.domain.com$request_uri? permanent;
+
+include %home%/%user%/conf/web/nginx.%domain%.conf*;
+}
